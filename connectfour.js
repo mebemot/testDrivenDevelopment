@@ -10,6 +10,8 @@ function calculateWinner(squares, lastClicked) {
       winCheck[0],
       [lastClicked, lastClicked + 1, lastClicked + 2, lastClicked + 3],
     ].toString();
+  } else {
+    return [null, [null]].toString();
   }
 }
 
