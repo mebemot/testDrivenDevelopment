@@ -1,17 +1,23 @@
 function calculateWinner(squares, lastClicked) {
-  let winCheck = squares.slice(lastClicked, lastClicked + 4);
-  if (
-    winCheck[0] &&
-    winCheck[0] == winCheck[1] &&
-    winCheck[0] == winCheck[2] &&
-    winCheck[0] == winCheck[3]
-  ) {
+  const startOfRow = Math.floor(lastClicked / 7) * 7;
+  const endofRow = startOfRow + 6;
+  for (let i = startOfRow; i < endofRow; ++i) {
+    if (
+      squares[i] &&
+      squares[i] == squares[i + 1] &&
+      squares[i] == squares[i + 2] &&
+      squares[i] == squares[i + 3]
+    ) {
+    
+      //console.log(squares[i].toString());
     return [
-      winCheck[0],
-      [lastClicked, lastClicked + 1, lastClicked + 2, lastClicked + 3],
-    ].toString();
-  } else {
-    return [null, [null]].toString();
+        squares[i],
+        [i, i + 1, i + 2, i + 3],
+      ];
+      //return(["playerx",[0,1,2,3]]);
+    } else {
+      return [null, [null]];
+    }
   }
 }
 
